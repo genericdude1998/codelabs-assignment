@@ -15,19 +15,25 @@ const SurveyCreator = () => {
     const onChangeNewQuestion = (e) => setNewQuestion(e.target.value);
     const onAddQuestion = (e) => {
         e.preventDefault();
-        setQuestions((prevQuestions) => [...prevQuestions, {name: newQuestion, result: null}]);
-        setNewQuestion('');
+        if(newQuestion){
+            setQuestions((prevQuestions) => [...prevQuestions, {name: newQuestion, result: null}]);
+            setNewQuestion('');
+        }
+        else{
+            setError('No blank comments!');
+        }
     }
     
     const onSendSurvey = (e) => {
         e.preventDefault();
-        setTitle('');
-        setQuestions([]);
-
         axios.post('/createSurvey', {
             title: title,
             questions: [...questions],
         }).then(res => setError(res.data));
+
+        setTitle('');
+        setQuestions([]);
+
     }
 
     return (
