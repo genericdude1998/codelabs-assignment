@@ -21,6 +21,17 @@ const Surveydisplayer = () => {
     }, []);
 
     const onChangeAnswer = (e) => setAnswer(e.target.value === 'true');
+    const SendAnswer = () => {
+        axios.post('/giveAnswer', {
+        title: title,
+        questionId: currentQuestionId,
+        answer: answer
+        });
+    }
+    const onFinal = (e) => {
+        onNext(e);
+        window.location.href = '/surveysList';
+    }
     const onNext = (e) => {
         e.preventDefault();
         if(answer !== null){
@@ -39,14 +50,6 @@ const Surveydisplayer = () => {
         return prevQuestion === 0 ? prevQuestion : prevQuestion - 1
         }
     );
-    const SendAnswer = () => {
-
-        axios.post('/giveAnswer', {
-        title: title,
-        questionId: currentQuestionId,
-        answer: answer
-        });
-    }
 
     if(survey){
 
@@ -76,10 +79,11 @@ const Surveydisplayer = () => {
                     <button onClick={onPrevious}>Previous</button> 
                         : 
                     null}
-                {currentQuestionId === survey.questions.length - 1 ? 
-                    <button onClick={onNext}>Send</button> 
+                {currentQuestionId !== survey.questions.length - 1 ? 
+                    <button onClick={onNext}>Next</button>
                         : 
-                    <button onClick={onNext}>Next</button>}
+                    <button onClick={onFinal}>Send</button>
+                } 
             </form>
         </div>
     );
