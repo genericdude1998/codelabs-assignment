@@ -16,6 +16,9 @@ const SurveyCreator = () => {
     
     const onSendSurvey = (e) => {
         e.preventDefault();
+        setTitle('');
+        setNewQuestion('');
+
         axios.post('/createSurvey', {
             title: title,
             questions: [...questions],
@@ -25,7 +28,7 @@ const SurveyCreator = () => {
     return (
         <form>
             <label>Title</label>
-            <input type="text" onChange={onChangeTitle}/>
+            <input type="text" onChange={onChangeTitle} value={title}/>
             <br />
             <label>Questions</label>
             <ul>
@@ -33,7 +36,7 @@ const SurveyCreator = () => {
                     <li>{quest}</li>
                 ))}
             </ul>
-            <input type="text" onChange={onChangeNewQuestion}/>
+            <input type="text" onChange={onChangeNewQuestion} value={newQuestion}/>
             <button onClick={onAddQuestion}>Add Question</button>
             <br />
             <button type="submit" onClick={onSendSurvey}>Send</button>
