@@ -7,6 +7,8 @@ const Survey = ({title}) => {
         <div>
             <h1>{title}</h1>
             <Link to={`/takeSurvey/${title}`}>Take this Survey</Link>
+            <Link to={`/surveyResults/${title}`}>See Results</Link>
+
         </div>
     );
 }

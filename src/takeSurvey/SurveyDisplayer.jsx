@@ -3,7 +3,7 @@ import { useParams } from 'react-router';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-const Surveydisplayer = () => {
+const SurveyDisplayer = () => {
     const {title} = useParams();
     
     const [survey, setSurvey] = React.useState();
@@ -100,4 +100,4 @@ const Surveydisplayer = () => {
     return <h1>Loading</h1>
 }
 
-export default Surveydisplayer;
+export default SurveyDisplayer;
