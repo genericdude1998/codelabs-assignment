@@ -9,6 +9,8 @@ const Surveydisplayer = () => {
     const [survey, setSurvey] = React.useState();
     const [currentQuestionId, setcurrentQuestionID] = React.useState(0);
     const [answer, setAnswer] = React.useState(null);
+    const [error, setError] = React.useState('');
+
 
     React.useEffect(() => {
         axios.get(`/getSurveys/${title}`).then(res => {
@@ -20,20 +22,24 @@ const Surveydisplayer = () => {
 
     const onChangeAnswer = (e) => setAnswer(e.target.value === 'true');
     const onNext = (e) => {
-            e.preventDefault();
+        e.preventDefault();
+        if(answer !== null){
+            SendAnswer();
             setcurrentQuestionID(prevQuestion => (
                 prevQuestion === survey.questions.length - 1 ? 
                 prevQuestion : prevQuestion + 1
-            )
-        );
-        onSendAnswer();
+            ));
+        }
+        else{
+            setError('No questions can be left blank');
+        }
     }
     const onPrevious = (e) => setcurrentQuestionID(prevQuestion => {
         e.preventDefault();
         return prevQuestion === 0 ? prevQuestion : prevQuestion - 1
         }
     );
-    const onSendAnswer = () => {
+    const SendAnswer = () => {
 
         axios.post('/giveAnswer', {
         title: title,
@@ -71,7 +77,7 @@ const Surveydisplayer = () => {
                         : 
                     null}
                 {currentQuestionId === survey.questions.length - 1 ? 
-                    <button>Send</button> 
+                    <button onClick={onNext}>Send</button> 
                         : 
                     <button onClick={onNext}>Next</button>}
             </form>
