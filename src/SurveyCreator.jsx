@@ -11,7 +11,7 @@ const SurveyCreator = () => {
     const onChangeNewQuestion = (e) => setNewQuestion(e.target.value);
     const onAddQuestion = (e) => {
         e.preventDefault();
-        setQuestions((prevQuestions) => [...prevQuestions, newQuestion]);
+        setQuestions((prevQuestions) => [...prevQuestions, {name: newQuestion, result: null}]);
     }
     
     const onSendSurvey = (e) => {
@@ -19,7 +19,7 @@ const SurveyCreator = () => {
         setTitle('');
         setNewQuestion('');
         setQuestions([]);
-        
+
         axios.post('/createSurvey', {
             title: title,
             questions: [...questions],
@@ -34,7 +34,7 @@ const SurveyCreator = () => {
             <label>Questions</label>
             <ul>
                 {questions.map(quest => (
-                    <li>{quest}</li>
+                    <li>{quest.name}</li>
                 ))}
             </ul>
             <input type="text" onChange={onChangeNewQuestion} value={newQuestion}/>
