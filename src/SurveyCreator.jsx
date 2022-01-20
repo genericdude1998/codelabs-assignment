@@ -3,9 +3,9 @@ import React from 'react';
 
 const SurveyCreator = () => {
 
-    const [title, setTitle] = React.useState('newTitle');
-    const [newQuestion, setNewQuestion] = React.useState('newQuestion');
-    const [questions, setQuestions] = React.useState(['oldQuestion']);
+    const [title, setTitle] = React.useState('');
+    const [newQuestion, setNewQuestion] = React.useState('');
+    const [questions, setQuestions] = React.useState([]);
 
     const onChangeTitle = (e) => setTitle(e.target.value);
     const onChangeNewQuestion = (e) => setNewQuestion(e.target.value);
@@ -14,7 +14,8 @@ const SurveyCreator = () => {
         setQuestions((prevQuestions) => [...prevQuestions, newQuestion]);
     }
     
-    const onSendSurvey = () => {
+    const onSendSurvey = (e) => {
+        e.preventDefault();
         axios.post('/createSurvey', {
             title: title,
             questions: [...questions],

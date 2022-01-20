@@ -9,9 +9,9 @@ const devServer = (devServer) => {
         const title = req.body.title;
         const questions = req.body.questions;
 
-        var newSurveys = [...surveys, {title, questions}];
-
-        res.json(newSurveys);
+        surveys.push({title, questions});
+        console.log(surveys);
+        res.json(surveys);
     })
 }
 
