@@ -20,7 +20,7 @@ const SurveyDisplayer = () => {
         });
     }, []);
 
-    const onChangeAnswer = (e) => setAnswer(e.target.value === 'true');
+    const onChangeAnswer = (e) => setAnswer(e.target.value);
     const SendAnswerAndClear = () => {
         axios.post('/giveAnswer', {
         title: title,
@@ -68,8 +68,8 @@ const SurveyDisplayer = () => {
                     id="Yes" 
                     name='Answer' 
                     onChange={onChangeAnswer} 
-                    value={true}
-                    checked={answer === true}
+                    value={'Yes'}
+                    checked={answer === 'Yes'}
                 />
 
                 <label htmlFor='No'>No</label>
@@ -78,8 +78,8 @@ const SurveyDisplayer = () => {
                     id="No" 
                     name='Answer' 
                     onChange={onChangeAnswer} 
-                    value={false}
-                    checked={answer === false}
+                    value={'No'}
+                    checked={answer === 'No'}
                 />
 
                 {currentQuestionId !== 0 ? 
