@@ -6,7 +6,7 @@ const Home = () => {
         <div>
             <Link to={'/newSurvey'}>Create a new Survey</Link>
             <Link to={'/surveysList'}>Your Surveys</Link>
-            <Link to={'/takeSurvey'}>Take a Survey</Link>
+            {/* <Link to={'/takeSurvey'}>Take a Survey</Link> */}
         </div>
     );
 }

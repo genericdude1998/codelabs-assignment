@@ -4,6 +4,7 @@ import Survey from './surveysList/survey/Survey';
 import SurveyCreator from './surveyCreator/SurveyCreator';
 import SurveysList from './surveysList/SurveysList';
 import Home from './home/Home';
+import Surveydisplayer from './takeSurvey/SurveyDisplayer';
 
 const App = () => {
     return (
@@ -18,8 +19,8 @@ const App = () => {
                 <Route path='/surveysList' element={
                     <SurveysList />
                 } />
-                <Route path='/takeSurvey' element={
-                    <Survey title={'title'}/>
+                <Route path='/takeSurvey/:title' element={
+                    <Surveydisplayer />
                 } />
             </Routes>
         </BrowserRouter>
