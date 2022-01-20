@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const SurveyCreator = () => {
 
@@ -27,21 +28,24 @@ const SurveyCreator = () => {
     }
 
     return (
-        <form>
-            <label>Title</label>
-            <input type="text" onChange={onChangeTitle} value={title}/>
-            <br />
-            <label>Questions</label>
-            <ul>
-                {questions.map(quest => (
-                    <li>{quest.name}</li>
-                ))}
-            </ul>
-            <input type="text" onChange={onChangeNewQuestion} value={newQuestion}/>
-            <button onClick={onAddQuestion}>Add Question</button>
-            <br />
-            <button type="submit" onClick={onSendSurvey}>Send</button>
-        </form>
+        <>
+            <Link to='/'>Home</Link>
+            <form>
+                <label>Title</label>
+                <input type="text" onChange={onChangeTitle} value={title}/>
+                <br />
+                <label>Questions</label>
+                <ul>
+                    {questions.map(quest => (
+                        <li>{quest.name}</li>
+                    ))}
+                </ul>
+                <input type="text" onChange={onChangeNewQuestion} value={newQuestion}/>
+                <button onClick={onAddQuestion}>Add Question</button>
+                <br />
+                <button type="submit" onClick={onSendSurvey}>Send</button>
+            </form>
+        </>
     );
 }
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const Surveydisplayer = () => {
     const {title} = useParams();
@@ -45,6 +46,7 @@ const Surveydisplayer = () => {
 
         return (
         <div>
+            <Link to='/'>Home</Link>
             <h1>{survey.title}</h1>
             <p>{survey.questions[currentQuestionId].name}</p>
             <form >
