@@ -18,7 +18,8 @@ const SurveyCreator = () => {
         e.preventDefault();
         setTitle('');
         setNewQuestion('');
-
+        setQuestions([]);
+        
         axios.post('/createSurvey', {
             title: title,
             questions: [...questions],
