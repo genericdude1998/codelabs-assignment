@@ -12,15 +12,19 @@ const SurveysList = () => {
             setSurveys([]);
         };
     }, []);
-
+    
     return (
         <div>
             <Link to='/'>Home</Link>
-            <ul>
+            {surveys.length ? 
+                <ul>
                 {surveys.map(survey => (
                     <li>{<Survey title={survey.title}/>}</li>
                 ))}
-            </ul>
+                </ul>
+                :
+                <h1>No Surveys Found!</h1>
+            }
         </div>
     );
 }
