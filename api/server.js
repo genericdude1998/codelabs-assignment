@@ -12,7 +12,7 @@ const devServer = (devServer) => {
         surveys.push({title, questions});
         console.log(surveys);
         res.json(surveys);
-    })
+    });
 }
 
 module.exports = devServer;
