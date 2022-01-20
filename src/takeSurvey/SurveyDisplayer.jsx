@@ -18,18 +18,21 @@ const Surveydisplayer = () => {
     }, []);
 
     const onChangeAnswer = (e) => setAnswer(e.target.value === 'true');
-    const onNext = (e) => setcurrentQuestionID(prevQuestion => {
-        e.preventDefault();
-        return prevQuestion === survey.questions.length - 1 ? prevQuestion : prevQuestion + 1
-        }
-    );
+    const onNext = (e) => {
+            e.preventDefault();
+            setcurrentQuestionID(prevQuestion => (
+                prevQuestion === survey.questions.length - 1 ? 
+                prevQuestion : prevQuestion + 1
+            )
+        );
+        onSendAnswer();
+    }
     const onPrevious = (e) => setcurrentQuestionID(prevQuestion => {
         e.preventDefault();
         return prevQuestion === 0 ? prevQuestion : prevQuestion - 1
         }
     );
-    const onSendAnswer = (e) => {
-        e.preventDefault();
+    const onSendAnswer = () => {
 
         axios.post('/giveAnswer', {
         title: title,
