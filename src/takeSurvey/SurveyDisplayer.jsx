@@ -6,7 +6,7 @@ const Surveydisplayer = () => {
     const {title} = useParams();
     
     const [survey, setSurvey] = React.useState();
-    const [currentQuestion, setcurrentQuestion] = React.useState(0);
+    const [currentQuestionId, setcurrentQuestionID] = React.useState(0);
     const [answer, setAnswer] = React.useState(null);
 
     React.useEffect(() => {
@@ -18,12 +18,12 @@ const Surveydisplayer = () => {
     }, []);
 
     const onChangeAnswer = (e) => setAnswer(e.target.value === 'true');
-    const onNext = (e) => setcurrentQuestion(prevQuestion => {
+    const onNext = (e) => setcurrentQuestionID(prevQuestion => {
         e.preventDefault();
         return prevQuestion === survey.questions.length - 1 ? prevQuestion : prevQuestion + 1
         }
     );
-    const onPrevious = (e) => setcurrentQuestion(prevQuestion => {
+    const onPrevious = (e) => setcurrentQuestionID(prevQuestion => {
         e.preventDefault();
         return prevQuestion === 0 ? prevQuestion : prevQuestion - 1
         }
@@ -32,7 +32,7 @@ const Surveydisplayer = () => {
     return (
         <div>
             <h1>{survey ? survey.title:'Loading'}</h1>
-            <p>{currentQuestion}</p>
+            <p>{survey? survey.questions[currentQuestionId].name : 'Loading'}</p>
             <form >
                 <label htmlFor='Yes'>Yes</label>
                 <input 
