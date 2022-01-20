@@ -6,17 +6,26 @@ const Surveydisplayer = () => {
     const {title} = useParams();
     
     const [survey, setSurvey] = React.useState();
+    const [currentQuestion, setcurrentQuestion] = React.useState('');
 
     React.useEffect(() => {
-        axios.get(`/getSurveys/${title}`).then(res => setSurvey(res.data[0]));
-        return () => {
-            
-        };
+        axios.get(`/getSurveys/${title}`).then(res => {
+            const surveySelected = res.data[0]
+            setSurvey(surveySelected);
+            setcurrentQuestion(surveySelected.questions[0].name);
+        });
     }, []);
 
     return (
         <div>
-            {survey ? survey.title:'Loading'}
+            <h1>{survey ? survey.title:'Loading'}</h1>
+            <p>{currentQuestion}</p>
+            <label>Yes</label>
+            <input type="radio" />
+            <label>No</label>
+            <input type="radio" />
+            <button>Previous</button>
+            <button>Next</button>
         </div>
     );
 }
