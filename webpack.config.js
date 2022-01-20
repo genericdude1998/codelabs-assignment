@@ -29,6 +29,9 @@ module.exports = {
       }
     ]
   },
+  resolve:{
+    extensions:['.js', '.jsx'],
+  },
   devServer:{
     onBeforeSetupMiddleware:  server,
   },

@@ -1,10 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
+import App from './App';
 
 axios.post('/createSurvey', {
     title: 'example title',
     questions: ['example questions'],
 })
 
-ReactDOM.render(<h1>Helloworld React!</h1>, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));
