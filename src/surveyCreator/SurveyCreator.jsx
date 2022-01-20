@@ -7,8 +7,11 @@ const SurveyCreator = () => {
     const [title, setTitle] = React.useState('');
     const [newQuestion, setNewQuestion] = React.useState('');
     const [questions, setQuestions] = React.useState([]);
-
-    const onChangeTitle = (e) => setTitle(e.target.value);
+    const [error, setError] = React.useState('');
+    
+    const onChangeTitle = (e) => {
+        setTitle(e.target.value)
+    };
     const onChangeNewQuestion = (e) => setNewQuestion(e.target.value);
     const onAddQuestion = (e) => {
         e.preventDefault();
@@ -24,7 +27,7 @@ const SurveyCreator = () => {
         axios.post('/createSurvey', {
             title: title,
             questions: [...questions],
-        });
+        }).then(res => setError(res.data));
     }
 
     return (
@@ -45,6 +48,7 @@ const SurveyCreator = () => {
                 <br />
                 <button type="submit" onClick={onSendSurvey}>Send</button>
             </form>
+            {error ? <h5>{error}</h5> : null}
         </>
     );
 }

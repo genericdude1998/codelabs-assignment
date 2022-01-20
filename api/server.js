@@ -8,10 +8,18 @@ const devServer = (devServer) => {
     app.post('/createSurvey', (req,res) => {
         const title = req.body.title;
         const questions = req.body.questions;
-
-        surveys.push({title, questions});
+        
+        console.log(title);
         console.log(surveys);
-        res.json(surveys);
+
+        if(surveys.length && surveys.filter(survey => survey.title === title).length){
+            res.json('A survey with this name already exists!');
+        }
+        else{
+            surveys.push({title, questions});
+            console.log(surveys);
+            res.json('');
+        }
     });
 
     app.post('/giveAnswer', (req,res) => {
