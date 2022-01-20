@@ -4,15 +4,10 @@ import axios from 'axios';
 
 const Surveydisplayer = () => {
     const {title} = useParams();
-
-    // axios.post('/giveAnswer',{
-    //     title,
-    //     questionId:0,
-    //     answer: true,
-    // })
     
     const [survey, setSurvey] = React.useState();
     const [currentQuestion, setcurrentQuestion] = React.useState('');
+    const [answer, setAnswer] = React.useState(null);
 
     React.useEffect(() => {
         axios.get(`/getSurveys/${title}`).then(res => {
@@ -23,16 +18,32 @@ const Surveydisplayer = () => {
         });
     }, []);
 
+    const onChangeAnswer = (e) => setAnswer(e.target.value === 'true');
+
     return (
         <div>
             <h1>{survey ? survey.title:'Loading'}</h1>
             <p>{currentQuestion}</p>
-            <label>Yes</label>
-            <input type="radio" />
-            <label>No</label>
-            <input type="radio" />
-            <button>Previous</button>
-            <button>Next</button>
+            <form >
+                <label htmlFor='Yes'>Yes</label>
+                <input 
+                    type="radio" 
+                    id="Yes" 
+                    name='Answer' 
+                    onChange={onChangeAnswer} 
+                    value={true}/>
+
+                <label htmlFor='No'>No</label>
+                <input 
+                    type="radio" 
+                    id="No" 
+                    name='Answer' 
+                    onChange={onChangeAnswer} 
+                    value={false}/>
+
+                <button>Previous</button>
+                <button>Next</button>
+            </form>
         </div>
     );
 }
