@@ -9,17 +9,24 @@ const devServer = (devServer) => {
         const title = req.body.title;
         const questions = req.body.questions;
         
-        console.log(title);
-        console.log(surveys);
+        if(!title){
+            res.json('You need a title to begin');
+            return;
+        }
+
+        if(questions.length === 0){
+            res.json('You need at least one question to begin');
+            return;
+        }
 
         if(surveys.length && surveys.filter(survey => survey.title === title).length){
             res.json('A survey with this name already exists!');
+            return;
         }
-        else{
-            surveys.push({title, questions});
-            console.log(surveys);
-            res.json('');
-        }
+
+        surveys.push({title, questions});
+        console.log(surveys);
+        res.json('');
     });
 
     app.post('/giveAnswer', (req,res) => {
