@@ -4,17 +4,19 @@ import Survey from './survey/Survey';
 
 const SurveysList = () => {
     const [surveys, setSurveys] = React.useState([]);
+
     React.useEffect(() => {
+        axios.get('/getSurveys').then(res => setSurveys(([...res.data])));
         return () => {
             setSurveys([]);
         };
-    }, [input]);
-    
+    }, []);
+
     return (
         <div>
             <ul>
                 {surveys.map(survey => (
-                    <li>{<Survey title={survey.name}/>}</li>
+                    <li>{<Survey title={survey.title}/>}</li>
                 ))}
             </ul>
         </div>
