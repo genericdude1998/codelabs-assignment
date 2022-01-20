@@ -13,17 +13,14 @@ const devServer = (devServer) => {
             res.json('You need a title to begin');
             return;
         }
-
-        if(questions.length === 0){
-            res.json('You need at least one question to begin');
-            return;
-        }
-
         if(surveys.length && surveys.filter(survey => survey.title === title).length){
             res.json('A survey with this name already exists!');
             return;
         }
-
+        if(questions.length === 0){
+            res.json('You need at least one question to begin');
+            return;
+        }
         surveys.push({title, questions});
         console.log(surveys);
         res.json('');

@@ -22,7 +22,12 @@ const SurveyResults = () => {
                 <ul>
                     {surveyResults.questions.map(question => (
                         <li>
-                            {`${question.name + ' ' + question.result}`}
+                            {
+                                question.result !== null ?
+                                    `${question.name + ' ' + question.result}`
+                                :
+                                `${question.name + ' ' + 'Not yet determined'}`
+                            }
                         </li>
                     ))}
                 </ul>
