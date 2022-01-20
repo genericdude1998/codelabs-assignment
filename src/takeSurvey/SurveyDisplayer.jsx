@@ -64,9 +64,14 @@ const Surveydisplayer = () => {
                     onChange={onChangeAnswer} 
                     value={false}/>
 
-                <button onClick={onPrevious}>Previous</button>
-                <button onClick={onNext}>Next</button>
-                {currentQuestionId === survey.questions.length - 1 ? <button>Send</button> : null}
+                {currentQuestionId !== 0 ? 
+                    <button onClick={onPrevious}>Previous</button> 
+                        : 
+                    null}
+                {currentQuestionId === survey.questions.length - 1 ? 
+                    <button>Send</button> 
+                        : 
+                    <button onClick={onNext}>Next</button>}
             </form>
         </div>
     );
