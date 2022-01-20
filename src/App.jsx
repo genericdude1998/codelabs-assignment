@@ -1,11 +1,11 @@
 import React from 'react';
 import { Route, BrowserRouter, Routes } from 'react-router-dom';
-import Survey from './surveysList/survey/Survey';
+
 import SurveyCreator from './surveyCreator/SurveyCreator';
 import SurveysList from './surveysList/SurveysList';
 import Home from './home/Home';
 import SurveyDisplayer from './takeSurvey/SurveyDisplayer';
-import SurveyResults from './surveyResults/surveyResults';
+import SurveyResults from './surveyResults/SurveyResults';
 
 const App = () => {
     return (
