@@ -21,12 +21,14 @@ const Surveydisplayer = () => {
     }, []);
 
     const onChangeAnswer = (e) => setAnswer(e.target.value === 'true');
-    const SendAnswer = () => {
+    const SendAnswerAndClear = () => {
         axios.post('/giveAnswer', {
         title: title,
         questionId: currentQuestionId,
         answer: answer
         });
+
+        setAnswer(null);
     }
     const onFinal = (e) => {
         onNext(e);
@@ -35,11 +37,12 @@ const Surveydisplayer = () => {
     const onNext = (e) => {
         e.preventDefault();
         if(answer !== null){
-            SendAnswer();
+            SendAnswerAndClear();
             setcurrentQuestionID(prevQuestion => (
                 prevQuestion === survey.questions.length - 1 ? 
                 prevQuestion : prevQuestion + 1
             ));
+
         }
         else{
             setError('No questions can be left blank');
@@ -65,7 +68,9 @@ const Surveydisplayer = () => {
                     id="Yes" 
                     name='Answer' 
                     onChange={onChangeAnswer} 
-                    value={true}/>
+                    value={true}
+                    checked={answer === true}
+                />
 
                 <label htmlFor='No'>No</label>
                 <input 
@@ -73,7 +78,9 @@ const Surveydisplayer = () => {
                     id="No" 
                     name='Answer' 
                     onChange={onChangeAnswer} 
-                    value={false}/>
+                    value={false}
+                    checked={answer === false}
+                />
 
                 {currentQuestionId !== 0 ? 
                     <button onClick={onPrevious}>Previous</button> 
@@ -85,6 +92,7 @@ const Surveydisplayer = () => {
                     <button onClick={onFinal}>Send</button>
                 } 
             </form>
+            <h5>{error ? error: null}</h5>
         </div>
     );
     }
