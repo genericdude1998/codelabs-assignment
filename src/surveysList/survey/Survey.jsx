@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Survey = ({title, questionId}) => {
+const Survey = ({title, surveyId}) => {
 
     return (
         <div>
