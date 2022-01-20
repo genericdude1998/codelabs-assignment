@@ -4,13 +4,20 @@ import axios from 'axios';
 
 const Surveydisplayer = () => {
     const {title} = useParams();
+
+    // axios.post('/giveAnswer',{
+    //     title,
+    //     questionId:0,
+    //     answer: true,
+    // })
     
     const [survey, setSurvey] = React.useState();
     const [currentQuestion, setcurrentQuestion] = React.useState('');
 
     React.useEffect(() => {
         axios.get(`/getSurveys/${title}`).then(res => {
-            const surveySelected = res.data[0]
+            const surveySelected = res.data[0];
+            console.log(surveySelected);
             setSurvey(surveySelected);
             setcurrentQuestion(surveySelected.questions[0].name);
         });

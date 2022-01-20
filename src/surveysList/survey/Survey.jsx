@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Survey = ({title, surveyId}) => {
+const Survey = ({title}) => {
 
     return (
         <div>
