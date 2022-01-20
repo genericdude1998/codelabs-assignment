@@ -12,12 +12,12 @@ const SurveyCreator = () => {
     const onAddQuestion = (e) => {
         e.preventDefault();
         setQuestions((prevQuestions) => [...prevQuestions, {name: newQuestion, result: null}]);
+        setNewQuestion('');
     }
     
     const onSendSurvey = (e) => {
         e.preventDefault();
         setTitle('');
-        setNewQuestion('');
         setQuestions([]);
 
         axios.post('/createSurvey', {
