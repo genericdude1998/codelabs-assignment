@@ -28,11 +28,22 @@ const Surveydisplayer = () => {
         return prevQuestion === 0 ? prevQuestion : prevQuestion - 1
         }
     );
+    const onSendAnswer = (e) => {
+        e.preventDefault();
 
-    return (
+        axios.post('/giveAnswer', {
+        title: title,
+        questionId: currentQuestionId,
+        answer: answer
+        });
+    }
+
+    if(survey){
+
+        return (
         <div>
-            <h1>{survey ? survey.title:'Loading'}</h1>
-            <p>{survey? survey.questions[currentQuestionId].name : 'Loading'}</p>
+            <h1>{survey.title}</h1>
+            <p>{survey.questions[currentQuestionId].name}</p>
             <form >
                 <label htmlFor='Yes'>Yes</label>
                 <input 
@@ -52,9 +63,13 @@ const Surveydisplayer = () => {
 
                 <button onClick={onPrevious}>Previous</button>
                 <button onClick={onNext}>Next</button>
+                {currentQuestionId === survey.questions.length - 1 ? <button>Send</button> : null}
             </form>
         </div>
     );
+    }
+       
+    return <h1>Loading</h1>
 }
 
 export default Surveydisplayer;
