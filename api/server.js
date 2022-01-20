@@ -13,6 +13,11 @@ const devServer = (devServer) => {
         console.log(surveys);
         res.json(surveys);
     });
+
+    app.get('/getSurveys', (req,res) => {
+        console.log(surveys);
+        res.json(surveys);
+    });
 }
 
 module.exports = devServer;
