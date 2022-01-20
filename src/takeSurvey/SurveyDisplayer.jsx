@@ -93,6 +93,7 @@ const SurveyDisplayer = () => {
                 } 
             </form>
             <h5>{error ? error: null}</h5>
+            <p>{`Question ${currentQuestionId + 1} of ${survey.questions.length}`}</p>
         </div>
     );
     }
