@@ -26,6 +26,14 @@ const SurveyCreator = () => {
     
     const onSendSurvey = (e) => {
         e.preventDefault();
+        if(!title){
+            setError('You need a title to begin');
+            return;
+        }
+        if(questions.length === 0){
+            setError('You need at least one question to begin');
+            return;
+        }
         axios.post('/createSurvey', {
             title: title,
             questions: [...questions],
