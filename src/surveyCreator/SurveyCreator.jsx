@@ -2,6 +2,8 @@ import axios from 'axios';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import {GrAddCircle} from 'react-icons/gr';
+
 const SurveyCreator = () => {
 
     const [title, setTitle] = React.useState('');
@@ -89,7 +91,8 @@ const SurveyCreator = () => {
                             bg-slate-200
                             m-5
                             border-t-4 border-indigo-500
-                            break-all 
+                            break-all
+                            outline-none 
                             " 
                             type="text" 
                             onChange={onChangeNewQuestion} 
@@ -98,13 +101,20 @@ const SurveyCreator = () => {
                             <button onClick={onAddQuestion}>Add Question</button>
                         </>
                         :
-                        <button onClick={(e) => setopenQuestion((prevValue) => !prevValue)}>New Question</button>
+                        <GrAddCircle className="
+                        block
+                        mt-5
+                        "
+                        size={30}
+                        onClick={(e) => setopenQuestion((prevValue) => !prevValue)} 
+                        />
                 }
                 </div>
                 <br />
                 <button className="
                     block
                     ml-auto
+                    button
                 "
                 type="submit" onClick={onSendSurvey}>Send</button>
             </form>
