@@ -7,6 +7,7 @@ const SurveyCreator = () => {
     const [title, setTitle] = React.useState('');
     const [newQuestion, setNewQuestion] = React.useState('');
     const [questions, setQuestions] = React.useState([]);
+    const [openQuestion, setopenQuestion] = React.useState(false);
     const [error, setError] = React.useState('');
     
     const onChangeTitle = (e) => {
@@ -18,6 +19,7 @@ const SurveyCreator = () => {
         if(newQuestion){
             setQuestions((prevQuestions) => [...prevQuestions, {name: newQuestion, result: null}]);
             setNewQuestion('');
+            setopenQuestion(false);
         }
         else{
             setError('No blank comments!');
@@ -81,18 +83,24 @@ const SurveyCreator = () => {
                             ">{quest.name}</li>
                         ))}
                     </ul>
-                    <textarea className="
-                       bg-slate-200
-                       m-5
-                       border-t-4 border-indigo-500
-                       break-all 
-                    " 
-                    type="text" 
-                    onChange={onChangeNewQuestion} 
-                    value={newQuestion} 
-                    placeholder={'What is your question?'}/>
+                    {openQuestion ? 
+                        <>
+                            <textarea className="
+                            bg-slate-200
+                            m-5
+                            border-t-4 border-indigo-500
+                            break-all 
+                            " 
+                            type="text" 
+                            onChange={onChangeNewQuestion} 
+                            value={newQuestion} 
+                            placeholder={'What is your question?'}/>
+                            <button onClick={onAddQuestion}>Add Question</button>
+                        </>
+                        :
+                        <button onClick={(e) => setopenQuestion((prevValue) => !prevValue)}>New Question</button>
+                }
                 </div>
-                <button onClick={onAddQuestion}>Add Question</button>
                 <br />
                 <button className="
                     block
