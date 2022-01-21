@@ -43,6 +43,7 @@ module.exports = {
   },
   devServer:{
     onBeforeSetupMiddleware:  server,
+    static: './dist',
     historyApiFallback: true,
   },
   // add a custom index.html as the template
