@@ -7,6 +7,8 @@ import Home from './home/Home';
 import SurveyDisplayer from './takeSurvey/SurveyDisplayer';
 import SurveyResults from './surveyResults/SurveyResults';
 
+import './assets/main.css';
+
 const App = () => {
     return (
         <BrowserRouter>
