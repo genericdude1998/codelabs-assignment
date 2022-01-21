@@ -2,6 +2,7 @@ import axios from 'axios';
 import React from 'react';
 import Survey from './survey/Survey';
 import { Link } from 'react-router-dom';
+import Navbar from '../navbar/NavBar';
 
 const SurveysList = () => {
     const [surveys, setSurveys] = React.useState([]);
@@ -15,11 +16,15 @@ const SurveysList = () => {
     
     return (
         <div>
-            <Link to='/'>Home</Link>
+            <Navbar />
             {surveys.length ? 
                 <ul>
                 {surveys.map(survey => (
-                    <li>{<Survey title={survey.title}/>}</li>
+                    <li className="
+                    bg-slate-200
+                    m-5
+                    border-t-4 border-indigo-500
+                    break-all">{<Survey title={survey.title}/>}</li>
                 ))}
                 </ul>
                 :

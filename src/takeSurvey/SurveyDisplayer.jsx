@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import Navbar from '../navbar/NavBar';
 
 const SurveyDisplayer = () => {
     const {title} = useParams();
@@ -58,7 +59,7 @@ const SurveyDisplayer = () => {
 
         return (
         <div>
-            <Link to='/'>Home</Link>
+            <Navbar />
             <h1>{survey.title}</h1>
             <p>{survey.questions[currentQuestionId].name}</p>
             <form >

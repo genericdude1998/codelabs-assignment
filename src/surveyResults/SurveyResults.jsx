@@ -21,7 +21,11 @@ const SurveyResults = () => {
                 <h1>{surveyResults.title}</h1>
                 <ul>
                     {surveyResults.questions.map(question => (
-                        <li>
+                        <li className="
+                        bg-slate-200
+                        m-5
+                        border-t-4 border-indigo-500
+                        break-all">
                             {
                                 question.result !== null ?
                                     `${question.name + ' ' + question.result}`
