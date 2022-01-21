@@ -50,18 +50,29 @@ const SurveyCreator = () => {
     }
 
     return (
-        <>
-            <Link to='/'>Home</Link>
+        <div className="
+        w-screen
+        h-screen
+        bg-zinc-100
+    ">
+            <div className="
+                bg-indigo-500
+                h-10
+                
+            ">
+                <Link to='/' className="text-white h-full navBarLink">Home</Link>    
+            </div >
             <form className="
-                w-full
-                h-full
+                 w-full
+                 h-full
                 bg-zinc-100
+                p-3
             ">
                 <div className="
                     flex 
                     flex-col
                     items-center
-                    m-2
+                    p-2
                 ">
                     <input className="
                         text-center
@@ -120,7 +131,7 @@ const SurveyCreator = () => {
                 type="submit" onClick={onSendSurvey}>Send</button>
             </form>
             {error ? <h5>{error}</h5> : null}
-        </>
+        </div>
     );
 }
 

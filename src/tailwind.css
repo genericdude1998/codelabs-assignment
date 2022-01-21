@@ -28,3 +28,8 @@
      border-radius: 10px;
      padding: 5px
  }
+
+ .navBarLink{
+    padding-left: 10px;
+    line-height: 250%;
+ }

@@ -472,10 +472,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin: 2.5rem;
 }
 
-.m-2 {
-  margin: 0.5rem;
-}
-
 .m-5 {
   margin: 1.25rem;
 }
@@ -508,12 +504,20 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 100%;
 }
 
+.h-10 {
+  height: 2.5rem;
+}
+
 .w-full {
   width: 100%;
 }
 
 .w-1\/2 {
   width: 50%;
+}
+
+.w-screen {
+  width: 100vw;
 }
 
 .flex-col {
@@ -555,6 +559,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-color: rgb(244 244 245 / var(--tw-bg-opacity));
 }
 
+.bg-indigo-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(99 102 241 / var(--tw-bg-opacity));
+}
+
 .bg-slate-200 {
   --tw-bg-opacity: 1;
   background-color: rgb(226 232 240 / var(--tw-bg-opacity));
@@ -586,6 +595,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-gradient-to: #1e3a8a;
 }
 
+.p-3 {
+  padding: 0.75rem;
+}
+
+.p-2 {
+  padding: 0.5rem;
+}
+
 .text-center {
   text-align: center;
 }
@@ -593,6 +610,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-gray-100 {
   --tw-text-opacity: 1;
   color: rgb(243 244 246 / var(--tw-text-opacity));
+}
+
+.text-white {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
 .shadow-lg {
@@ -643,6 +665,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-color: royalblue;
   border-radius: 10px;
   padding: 5px
+}
+
+.navBarLink{
+  padding-left: 10px;
+  line-height: 250%;
 }
 
 @media (min-width: 640px) {
