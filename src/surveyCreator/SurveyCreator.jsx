@@ -47,20 +47,58 @@ const SurveyCreator = () => {
     return (
         <>
             <Link to='/'>Home</Link>
-            <form>
-                <label>Title</label>
-                <input type="text" onChange={onChangeTitle} value={title}/>
+            <form className="
+                w-full
+                h-full
+                bg-zinc-100
+            ">
+                <div className="
+                    flex 
+                    flex-col
+                    items-center
+                    m-2
+                ">
+                    <input className="
+                        text-center
+                        bg-zinc-100
+                        outline-none
+                    "
+                    type="text" placeholder='Title' onChange={onChangeTitle} value={title}/>
+                </div>
                 <br />
                 <label>Questions</label>
-                <ul>
-                    {questions.map(quest => (
-                        <li>{quest.name}</li>
-                    ))}
-                </ul>
-                <input type="text" onChange={onChangeNewQuestion} value={newQuestion}/>
+                <div className="
+                    flex 
+                    flex-col
+                ">
+                    <ul>
+                        {questions.map(quest => (
+                            <li className="
+                                bg-slate-200
+                                m-5
+                                border-t-4 border-indigo-500
+                                break-all
+                            ">{quest.name}</li>
+                        ))}
+                    </ul>
+                    <textarea className="
+                       bg-slate-200
+                       m-5
+                       border-t-4 border-indigo-500
+                       break-all 
+                    " 
+                    type="text" 
+                    onChange={onChangeNewQuestion} 
+                    value={newQuestion} 
+                    placeholder={'What is your question?'}/>
+                </div>
                 <button onClick={onAddQuestion}>Add Question</button>
                 <br />
-                <button type="submit" onClick={onSendSurvey}>Send</button>
+                <button className="
+                    block
+                    ml-auto
+                "
+                type="submit" onClick={onSendSurvey}>Send</button>
             </form>
             {error ? <h5>{error}</h5> : null}
         </>

@@ -472,6 +472,22 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin: 2.5rem;
 }
 
+.m-2 {
+  margin: 0.5rem;
+}
+
+.m-5 {
+  margin: 1.25rem;
+}
+
+.ml-auto {
+  margin-left: auto;
+}
+
+.block {
+  display: block;
+}
+
 .flex {
   display: flex;
 }
@@ -508,13 +524,36 @@ Ensure the default browser behavior of the `hidden` attribute.
   justify-content: center;
 }
 
+.break-all {
+  word-break: break-all;
+}
+
 .rounded {
   border-radius: 0.25rem;
+}
+
+.border-t-4 {
+  border-top-width: 4px;
+}
+
+.border-indigo-500 {
+  --tw-border-opacity: 1;
+  border-color: rgb(99 102 241 / var(--tw-border-opacity));
 }
 
 .bg-gray-50 {
   --tw-bg-opacity: 1;
   background-color: rgb(249 250 251 / var(--tw-bg-opacity));
+}
+
+.bg-zinc-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(244 244 245 / var(--tw-bg-opacity));
+}
+
+.bg-slate-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(226 232 240 / var(--tw-bg-opacity));
 }
 
 .bg-gradient-to-br {
@@ -568,8 +607,31 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-shadow: var(--tw-shadow-colored);
 }
 
+.outline-none {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
 .textAlignVertical{
   line-height: 1525%;
+}
+
+::-webkit-input-placeholder {
+  text-align: center;
+}
+
+:-moz-placeholder {
+  /* Firefox 18- */
+  text-align: center;
+}
+
+::-moz-placeholder {
+  /* Firefox 19+ */
+  text-align: center;
+}
+
+:-ms-input-placeholder {
+  text-align: center;
 }
 
 @media (min-width: 640px) {
