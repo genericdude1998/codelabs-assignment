@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.textAlignVertical{
+    line-height: 1525%;
+}
