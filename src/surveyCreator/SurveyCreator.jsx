@@ -16,6 +16,7 @@ const SurveyCreator = () => {
         setTitle(e.target.value)
     };
     const onChangeNewQuestion = (e) => setNewQuestion(e.target.value);
+    const onOpenQuestion = () => setopenQuestion((prevValue) => !prevValue);
     const onAddQuestion = (e) => {
         e.preventDefault();
         if(newQuestion){
@@ -106,7 +107,7 @@ const SurveyCreator = () => {
                         mt-5
                         "
                         size={30}
-                        onClick={(e) => setopenQuestion((prevValue) => !prevValue)} 
+                        onClick={onOpenQuestion} 
                         />
                 }
                 </div>
