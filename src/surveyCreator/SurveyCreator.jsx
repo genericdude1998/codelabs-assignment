@@ -1,8 +1,8 @@
 import axios from 'axios';
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 import {GrAddCircle} from 'react-icons/gr';
+import Navbar from '../navbar/NavBar';
 
 const SurveyCreator = () => {
 
@@ -55,13 +55,8 @@ const SurveyCreator = () => {
         h-screen
         bg-zinc-100
     ">
-            <div className="
-                bg-indigo-500
-                h-10
-                
-            ">
-                <Link to='/' className="text-white h-full navBarLink">Home</Link>    
-            </div >
+            <Navbar />
+
             <form className="
                  w-full
                  h-full
