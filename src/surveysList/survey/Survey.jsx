@@ -6,8 +6,8 @@ const Survey = ({title}) => {
     return (
         <div>
             <h1>{title}</h1>
-            <Link to={`/takeSurvey/${title}`}>Take this Survey</Link>
-            <Link to={`/surveyResults/${title}`}>See Results</Link>
+            <Link className="text-amber-400 h-full navBarLink" to={`/takeSurvey/${title}`}>Take this Survey</Link>
+            <Link className="text-amber-400 h-full navBarLink" to={`/surveyResults/${title}`}>See Results</Link>
 
         </div>
     );
