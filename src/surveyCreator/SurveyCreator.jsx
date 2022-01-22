@@ -44,9 +44,7 @@ const SurveyCreator = () => {
             questions: [...questions],
         }).then(res => setError(res.data));
 
-        setTitle('');
-        setQuestions([]);
-
+        window.location.href = '/surveysList';
     }
 
     return (
@@ -105,7 +103,7 @@ const SurveyCreator = () => {
                             onChange={onChangeNewQuestion} 
                             value={newQuestion} 
                             placeholder={'What is your question?'}/>
-                            <button onClick={onAddQuestion}>Add Question</button>
+                            <button onClick={onAddQuestion} className>Add Question</button>
                         </>
                         :
                         <GrAddCircle className="
