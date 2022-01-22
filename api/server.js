@@ -40,7 +40,7 @@ const devServer = (devServer) => {
         const data = JSON.stringify(surveysJSON);
         fs.writeFileSync(surveysPath, data);
         
-        res.json(surveys);
+        res.json(surveysJSON);
     });
 
     app.get('/getSurveys', (req,res) => {

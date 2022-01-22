@@ -12,7 +12,6 @@ const SurveyResults = () => {
     React.useEffect(() => {
         axios.get(`/getSurveys/${title}`).then(res => {
             const surveySelected = res.data[0];
-            console.log(surveySelected);
             setSurveyResults(surveySelected);
         });
     }, []);
