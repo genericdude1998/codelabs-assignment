@@ -19,7 +19,7 @@ const SurveysList = () => {
             <Navbar />
             {surveys.length ? 
                 <ul>
-                {surveys.map(survey => (
+                {surveys.slice().reverse().map(survey => (
                     <li className="
                     bg-slate-200
                     m-5
