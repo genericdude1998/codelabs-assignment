@@ -2,6 +2,8 @@ import React from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router';
 
+import NavBar from '../navbar/NavBar';
+
 const SurveyResults = () => {
     const {title} = useParams();
 
@@ -18,8 +20,10 @@ const SurveyResults = () => {
     return surveyResults ? 
         (
             <div>
-                <h1>{surveyResults.title}</h1>
+                <NavBar />
+                <h1 className='text-center'>{surveyResults.title}</h1>
                 <ul>
+                    <h4>{'Survey Results:'}</h4>
                     {surveyResults.questions.map(question => (
                         <li className="
                         bg-slate-200
@@ -28,9 +32,15 @@ const SurveyResults = () => {
                         break-all">
                             {
                                 question.result !== null ?
-                                    `${question.name + ' ' + question.result}`
+                                    <div className="flex justify-between">
+                                        <h2>{question.name}</h2>
+                                        <p>{question.result}</p>
+                                    </div>
                                 :
-                                `${question.name + ' ' + 'Not yet determined'}`
+                                    <div className="flex justify-between">
+                                        <h2>{question.name}</h2>
+                                        <p>{'Not yet determined'}</p>
+                                    </div>
                             }
                         </li>
                     ))}
