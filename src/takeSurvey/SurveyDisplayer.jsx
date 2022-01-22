@@ -32,21 +32,24 @@ const SurveyDisplayer = () => {
         setAnswer(null);
     }
     const onFinal = (e) => {
-        onNext(e);
-        window.location.href = '/surveysList';
+        if(onNext(e)){
+            window.location.href = '/surveysList';
+        }
     }
     const onNext = (e) => {
         e.preventDefault();
         if(answer !== null){
+            setError('');
             SendAnswerAndClear();
             setcurrentQuestionID(prevQuestion => (
                 prevQuestion === survey.questions.length - 1 ? 
                 prevQuestion : prevQuestion + 1
             ));
-
+            return true;
         }
         else{
             setError('No questions can be left blank');
+            return false;
         }
     }
     const onPrevious = (e) => setcurrentQuestionID(prevQuestion => {
