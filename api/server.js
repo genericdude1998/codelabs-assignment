@@ -54,6 +54,7 @@ const devServer = (devServer) => {
         const surveysJSON = JSON.parse(fs.readFileSync(surveysPath));
         if(surveysJSON.filter(survey => survey.title === req.params.title)){
             res.json(surveysJSON.filter(survey => survey.title === req.params.title));
+            return;
         }
         res.json(surveysJSON);
     });
