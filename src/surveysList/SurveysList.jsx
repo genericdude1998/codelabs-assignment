@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React from 'react';
+
 import Survey from './survey/Survey';
-import { Link } from 'react-router-dom';
 import Navbar from '../navbar/NavBar';
 
 const SurveysList = () => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+
 import Navbar from '../navbar/NavBar';
 
 const SurveyDisplayer = () => {
@@ -16,7 +16,6 @@ const SurveyDisplayer = () => {
     React.useEffect(() => {
         axios.get(`/getSurveys/${title}`).then(res => {
             const surveySelected = res.data[0];
-            console.log(surveySelected);
             setSurvey(surveySelected);
         });
     }, []);

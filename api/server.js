@@ -20,7 +20,6 @@ const devServer = (devServer) => {
         }
 
         surveysJSON.push({title, questions});
-        console.log(surveysJSON);
 
         const data = JSON.stringify(surveysJSON);
         fs.writeFileSync(surveysPath, data);
@@ -37,7 +36,6 @@ const devServer = (devServer) => {
 
         const surveyIndex = surveysJSON.map(survey => survey.title).indexOf(title);
         surveysJSON[surveyIndex].questions[questionId].result = answer;
-        console.log(surveysJSON);
 
         const data = JSON.stringify(surveysJSON);
         fs.writeFileSync(surveysPath, data);
@@ -49,15 +47,12 @@ const devServer = (devServer) => {
 
         const surveysJSON = JSON.parse(fs.readFileSync(surveysPath));
 
-        console.log(surveysJSON);
         res.json(surveysJSON);
     });
 
     app.get('/getSurveys/:title', (req,res) => {
-        console.log(req.params.title);
         const surveysJSON = JSON.parse(fs.readFileSync(surveysPath));
         if(surveysJSON.filter(survey => survey.title === req.params.title)){
-            console.log(surveysJSON.filter(survey => survey.title === req.params.title))
             res.json(surveysJSON.filter(survey => survey.title === req.params.title));
         }
         res.json(surveysJSON);
