@@ -37,8 +37,11 @@ const devServer = (devServer) => {
 
         const surveyIndex = surveysJSON.map(survey => survey.title).indexOf(title);
         surveysJSON[surveyIndex].questions[questionId].result = answer;
-
         console.log(surveysJSON);
+
+        const data = JSON.stringify(surveysJSON);
+        fs.writeFileSync(surveysPath, data);
+        
         res.json(surveys);
     });
 
