@@ -24,8 +24,8 @@ const SurveyResults = () => {
                 <h1 className='text-center'>{surveyResults.title}</h1>
                 <ul>
                     <h4>{'Survey Results:'}</h4>
-                    {surveyResults.questions.map(question => (
-                        <li className="
+                    {surveyResults.questions.map((question,index) => (
+                        <li key={`${question.name} ${index}`}className="
                         bg-slate-200
                         m-5
                         border-t-4 border-indigo-500 rounded

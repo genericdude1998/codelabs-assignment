@@ -85,13 +85,13 @@ const SurveyCreator = () => {
                     flex-col
                 ">
                     <ul>
-                        {questions.map(quest => (
-                            <li className="
+                        {questions.map((question, index) => (
+                            <li key={`${question.name} ${index}`} className="
                                 bg-slate-200
                                 m-5
                                 border-t-4 border-indigo-500 rounded
                                 break-all
-                            ">{quest.name}</li>
+                            ">{question.name}</li>
                         ))}
                     </ul>
                     {openQuestion ? 
@@ -110,7 +110,7 @@ const SurveyCreator = () => {
                             onChange={onChangeNewQuestion} 
                             value={newQuestion} 
                             placeholder={'What is your question?'}/>
-                            <button onClick={onAddQuestion} className>Add Question</button>
+                            <button onClick={onAddQuestion}>Add Question</button>
                         </>
                         :
                         <GrAddCircle className="

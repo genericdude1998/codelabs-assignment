@@ -20,7 +20,7 @@ const SurveysList = () => {
             {surveys.length ? 
                 <ul>
                 {surveys.slice().reverse().map(survey => (
-                    <li className="
+                    <li key={survey.title} className="
                     bg-slate-200
                     m-5
                     border-t-4 border-indigo-500 rounded
