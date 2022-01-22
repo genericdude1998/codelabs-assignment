@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Home = () => {
     return (
-<div class="h-screen w-full bg-gray-50 flex items-center flex-col sm:flex-row">
+<div className="h-screen w-full bg-gray-50 flex items-center flex-col sm:flex-row">
     <div className="
             text-gray-100 shadow-lg 
             shadow-gray-300 
