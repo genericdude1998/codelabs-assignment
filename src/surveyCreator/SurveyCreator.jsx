@@ -42,9 +42,13 @@ const SurveyCreator = () => {
         axios.post('/createSurvey', {
             title: title,
             questions: [...questions],
-        }).then(res => setError(res.data));
+        }).then(res => {
+            setError(res.data);
 
-        window.location.href = '/surveysList';
+            if(!res.data){
+                window.location.href = '/surveysList';
+            }
+        });
     }
 
     return (

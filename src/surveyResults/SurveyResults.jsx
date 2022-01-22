@@ -28,7 +28,7 @@ const SurveyResults = () => {
                         <li className="
                         bg-slate-200
                         m-5
-                        border-t-4 border-indigo-500
+                        border-t-4 border-indigo-500 rounded
                         break-all">
                             {
                                 question.result !== null ?
