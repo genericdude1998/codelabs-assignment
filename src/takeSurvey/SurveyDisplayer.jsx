@@ -66,7 +66,7 @@ const SurveyDisplayer = () => {
             <form className='flex flex-col p-2' className="
                         bg-slate-200
                         m-5
-                        border-t-4 border-indigo-500
+                        border-t-4 border-indigo-500 rounded
                         break-all">
                 <p className='text-center m-5'>{survey.questions[currentQuestionId].name}</p>
                 <div className='flex justify-around m-10'>

@@ -23,7 +23,7 @@ const SurveysList = () => {
                     <li className="
                     bg-slate-200
                     m-5
-                    border-t-4 border-indigo-500
+                    border-t-4 border-indigo-500 rounded
                     break-all
                     hover:scale-105
                     transition-transform">{<Survey title={survey.title}/>}</li>

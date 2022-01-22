@@ -96,6 +96,7 @@ const SurveyCreator = () => {
                             bg-slate-200
                             m-5
                             border-t-4 border-indigo-500
+                            rounded
                             break-all
                             outline-none
                             hover:scale-105
