@@ -124,8 +124,8 @@ const SurveyCreator = () => {
                     button
                 "
                 type="submit" onClick={onSendSurvey}>Send</button>
+                {error ? <h5>{error}</h5> : null}
             </form>
-            {error ? <h5>{error}</h5> : null}
         </div>
     );
 }
