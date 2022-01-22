@@ -70,9 +70,9 @@ const SurveyDisplayer = () => {
                         break-all">
                 <p className='text-center m-5'>{survey.questions[currentQuestionId].name}</p>
                 <div className='flex justify-around m-10'>
-                    <div>
+                    <div className="w-1/4 flex justify-center">
                         <label htmlFor='Yes'>Yes</label>
-                        <input className='self-center'
+                        <input className='self-center ml-2'
                             type="radio" 
                             id="Yes" 
                             name='Answer' 
@@ -82,9 +82,9 @@ const SurveyDisplayer = () => {
                         />
                     </div>
 
-                    <div>
+                    <div className="w-1/4 flex justify-center">
                         <label htmlFor='No'>No</label>
-                        <input className='self-center'
+                        <input className='self-center ml-2'
                             type="radio" 
                             id="No" 
                             name='Answer' 

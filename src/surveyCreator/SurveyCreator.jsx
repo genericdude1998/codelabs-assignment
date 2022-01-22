@@ -97,7 +97,9 @@ const SurveyCreator = () => {
                             m-5
                             border-t-4 border-indigo-500
                             break-all
-                            outline-none 
+                            outline-none
+                            hover:scale-105
+                            transition-transform
                             " 
                             type="text" 
                             onChange={onChangeNewQuestion} 

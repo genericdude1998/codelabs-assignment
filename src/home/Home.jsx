@@ -12,7 +12,9 @@ const Home = () => {
             rounded
             flex
             justify-center
-            items-center"
+            items-center
+            hover:scale-110
+            transition-transform"
         >
         <Link to={'/newSurvey'}
         className="
@@ -31,14 +33,17 @@ const Home = () => {
         bg-gradient-to-bl 
         from-purple-300 to-blue-900
         flex
-        justify-center
-        items-center">
+    justify-center
+        items-center
+        hover:scale-110">
         <Link to={'/surveysList'}
         className="
             w-full
             h-full
             text-center
             textAlignVertical
+            hover:scale-110
+            transition-transform
         ">Your Surveys</Link>
     </div>
 </div>

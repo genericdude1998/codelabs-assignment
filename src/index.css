@@ -488,6 +488,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-left: auto;
 }
 
+.mr-2 {
+  margin-right: 0.5rem;
+}
+
+.ml-2 {
+  margin-left: 0.5rem;
+}
+
 .block {
   display: block;
 }
@@ -522,6 +530,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .w-screen {
   width: 100vw;
+}
+
+.w-1\/4 {
+  width: 25%;
 }
 
 .flex-col {
@@ -659,6 +671,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   outline-offset: 2px;
 }
 
+.transition-transform {
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
 .textAlignVertical{
   line-height: 1525%;
 }
@@ -689,8 +707,20 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 
 .navBarLink{
-  padding-left: 10px;
+  margin-left: 10px;
   line-height: 250%;
+}
+
+.hover\:scale-110:hover {
+  --tw-scale-x: 1.1;
+  --tw-scale-y: 1.1;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.hover\:scale-105:hover {
+  --tw-scale-x: 1.05;
+  --tw-scale-y: 1.05;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 @media (min-width: 640px) {

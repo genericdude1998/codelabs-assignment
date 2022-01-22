@@ -33,8 +33,8 @@ const SurveyResults = () => {
                             {
                                 question.result !== null ?
                                     <div className="flex justify-between">
-                                        <h2>{question.name}</h2>
-                                        <p>{question.result}</p>
+                                        <h2 className="ml-2">{question.name}</h2>
+                                        <p className="mr-2">{question.result}</p>
                                     </div>
                                 :
                                     <div className="flex justify-between">
